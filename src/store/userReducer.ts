@@ -5,6 +5,9 @@ export type UserStateType = {
     username:string
 }
 const INIT_STATE:UserStateType = {
+    username:"tom"
+}
+const OUT_STATE:UserStateType = {
     username:""
 }
 
@@ -15,7 +18,7 @@ export const userSlice =  createSlice({
         loginReducer:(state:UserStateType, action:PayloadAction<UserStateType>)=>{
             return action.payload
         },
-        logoutReducer:()=>INIT_STATE
+        logoutReducer:()=>OUT_STATE
     }
 })
 
