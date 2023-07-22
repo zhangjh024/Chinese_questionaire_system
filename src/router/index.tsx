@@ -9,7 +9,7 @@ import List from "../pages/Manage/List";
 import Star from "../pages/Manage/Star";
 import Trash from "../pages/Manage/Trash";
 import QuestionLayout from "../layouts/QuestionLayout";
-import Index from "../pages/Question";
+import Index from "../pages/Question/Edit";
 import Stat from "../pages/Question/Stat";
 // ## 页面对应的路由
 //
