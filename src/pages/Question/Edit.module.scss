@@ -24,12 +24,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow: hidden; //滚动
     .canvasWrapper{
       width: 400px;
       height: 712px;
       background-color: #fff;
-      overflow: auto;
+      overflow: auto; // y轴滚动
       box-shadow: 0 2px 10px #0000001f;
     }
   }

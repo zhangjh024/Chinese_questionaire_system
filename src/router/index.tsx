@@ -9,7 +9,7 @@ import List from "../pages/Manage/List";
 import Star from "../pages/Manage/Star";
 import Trash from "../pages/Manage/Trash";
 import QuestionLayout from "../layouts/QuestionLayout";
-import Edit from "../pages/Question/Edit";
+import Index from "../pages/Question";
 import Stat from "../pages/Question/Stat";
 // ## 页面对应的路由
 //
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
         children:[
             {
                 path:'edit/:id',
-                element: <Edit/>
+                element: <Index/>
             },
             {
                 path: 'stat/:id',

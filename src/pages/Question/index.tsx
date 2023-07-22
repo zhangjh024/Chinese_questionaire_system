@@ -1,7 +1,8 @@
 // import {useParams} from 'react-router-dom'
 // import useLoading from "../../hooks/useLoading";
 import styles from './Edit.module.scss'
-function Edit(){
+import EditCanvas from "./Edit/EditCanvas";
+function Index(){
     // const {loading, questionData}  = useLoading()
     // return <div>
     //     {loading?<p>加载中</p>:<p>{JSON.stringify(questionData)}</p>}
@@ -15,7 +16,7 @@ function Edit(){
                     <div className={styles.left}>left</div>
                     <div className={styles.main}>
                         <div className={styles.canvasWrapper}>
-                            <div style={{height:'900px'}}>测试滚动</div>
+                            <EditCanvas></EditCanvas>
                         </div>
                     </div>
                     <div className={styles.right}>right</div>
@@ -24,4 +25,4 @@ function Edit(){
         </div>
     )
 }
-export default Edit
+export default Index
