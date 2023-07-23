@@ -19,8 +19,11 @@ function useLoadQuestionData(){
     useEffect(()=>{
         if(!data) return
         const {title="",componentsList=[]} = data
+        let selectedId = "";
+        if(componentsList.length>0)
+            selectedId = componentsList[0].fe_id
         console.log("componentsList调试",componentsList,title)
-        dispatch(resetComponent({ componentList: componentsList }))
+        dispatch(resetComponent({ componentList: componentsList,selectedId:selectedId  }))
 
     },[data]) // 根据 data 变化设置 redux
 
