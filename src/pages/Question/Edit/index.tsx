@@ -5,6 +5,7 @@ import EditCanvas from "./EditCanvas";
 import useLoadQuestionData from "../../../hooks/useLoadQuestionData";
 import {useDispatch} from "react-redux";
 import {changeSelectedId} from "../../../store/componentsReducer";
+import LeftPanel from './LeftPanel'
 function Edit(){
 
     // return <div>
@@ -21,7 +22,9 @@ function Edit(){
             <div style={{backgroundColor:'#fff'}}>Header</div>
             <div className={styles.contentWrapper}>
                 <div className={styles.content}>
-                    <div className={styles.left}>left</div>
+                    <div className={styles.left}>
+                        <LeftPanel/>
+                    </div>
                     <div className={styles.main} onClick={clearSelectedId}>
                         <div className={styles.canvasWrapper}>
                             <EditCanvas loading={loading}></EditCanvas>
