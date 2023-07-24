@@ -40,10 +40,20 @@ export const componentsSlice = createSlice({
                 componentList.push(newComponent)
             }else
                 componentList.splice(index+1,0,newComponent)
+        }),
+
+        // 修改组件属性
+        changeComponentProps:produce((draft:ComponentListType,action:PayloadAction<{ fe_id:string,newProps:ComponentPropsType }>)=>{
+            const {fe_id,newProps} = action.payload;
+            const curComponent = draft.componentList.find((c)=>c.fe_id == fe_id)
+            if(curComponent){
+                curComponent.props = newProps
+            }
+
         })
     }
 })
 
-export const {resetComponent , changeSelectedId,addComponent} = componentsSlice.actions
+export const {resetComponent , changeSelectedId,addComponent,changeComponentProps} = componentsSlice.actions
 
 export default componentsSlice.reducer

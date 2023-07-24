@@ -6,6 +6,7 @@ import useLoadQuestionData from "../../../hooks/useLoadQuestionData";
 import {useDispatch} from "react-redux";
 import {changeSelectedId} from "../../../store/componentsReducer";
 import LeftPanel from './LeftPanel'
+import RightPanel from "./RightPanel";
 function Edit(){
 
     // return <div>
@@ -30,7 +31,9 @@ function Edit(){
                             <EditCanvas loading={loading}></EditCanvas>
                         </div>
                     </div>
-                    <div className={styles.right}>right</div>
+                    <div className={styles.right}>
+                        <RightPanel/>
+                    </div>
                 </div>
             </div>
         </div>
