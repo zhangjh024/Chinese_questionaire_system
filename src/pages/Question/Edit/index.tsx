@@ -7,6 +7,7 @@ import {useDispatch} from "react-redux";
 import {changeSelectedId} from "../../../store/componentsReducer";
 import LeftPanel from './LeftPanel'
 import RightPanel from "./RightPanel";
+import EditHeader from "./EditHeader";
 function Edit(){
 
     // return <div>
@@ -20,7 +21,8 @@ function Edit(){
     }
     return (
         <div className={styles.container}>
-            <div style={{backgroundColor:'#fff'}}>Header</div>
+            <div style={{backgroundColor:'#fff'}}><EditHeader/></div>
+
             <div className={styles.contentWrapper}>
                 <div className={styles.content}>
                     <div className={styles.left}>
