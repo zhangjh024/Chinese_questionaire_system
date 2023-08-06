@@ -7,7 +7,8 @@ function useGetComponentInfo(){
     const selectedComponent = componentList.find((c)=>c.fe_id==selectedId)
     return {
         selectedComponent,
-        componentList,selectedId
+        componentList,
+        selectedId
     }
 }
 

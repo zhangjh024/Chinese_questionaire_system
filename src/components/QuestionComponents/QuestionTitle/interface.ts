@@ -2,7 +2,8 @@ export type QuestionTitlePropsType = {
     text?:string,
     level?:1|2|3|4|5,
     isCenter?:boolean,
-    onChange?:(newProps:QuestionTitlePropsType)=>void
+    onChange?:(newProps:QuestionTitlePropsType)=>void,
+    disabled?:boolean
 }
 // 如果不传，有默认属性
 

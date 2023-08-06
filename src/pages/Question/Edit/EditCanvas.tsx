@@ -1,6 +1,6 @@
 import styles from './EditCanvas.module.scss'
-import QuestionTitle from "../../../components/QuestionComponents/QuestionTitle/component";
-import QuestionInput from "../../../components/QuestionComponents/QuestionInput/component";
+// import QuestionTitle from "../../../components/QuestionComponents/QuestionTitle/component";
+// import QuestionInput from "../../../components/QuestionComponents/QuestionInput/component";
 import {FC} from "react";
 import {Spin} from "antd";
 import useGetComponentInfo from "../../../hooks/useGetComponentInfo";
@@ -41,14 +41,16 @@ const EditCanvas:FC<PropsType> = ({loading}) =>{
     return (
         <div className={styles.canvas}>
             {
-                componentList.map(c=>{
-                    const {fe_id} = c
+                componentList.filter(c=>!c.isHidden).map(c=>{
+                    const {fe_id, isLocked} = c
                     // 拼接className
                     const componentCanvasDefault = styles.componentCanvas;
                     const selectedClassName =styles.selected;
+                    const lockedName = styles.locked
                     const wrapperClassName = classNames({
                         [componentCanvasDefault]:true,
                         [selectedClassName]:fe_id === selectedId,
+                        [lockedName]:isLocked,
                     })
 
 

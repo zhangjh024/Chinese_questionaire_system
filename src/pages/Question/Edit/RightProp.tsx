@@ -7,23 +7,23 @@ const NoProps = ()=>{
     return <div style={{textAlign:"center"}}>未选中组件</div>
 }
 const RightProp = () =>{
+
     const dispatch = useDispatch()
     const {selectedComponent} = useGetComponentInfo()
     if(selectedComponent == null)
         return <NoProps/>
-    const {type, props} = selectedComponent
+    const {type, props, isLocked} = selectedComponent
     const component = getComponentConfByType(type)
     if(component == null)
         return <NoProps/>
     const {PropComponent} = component
     const changeProps = (newProps:ComponentPropsType)=>{
         if(selectedComponent == null) return
-        const {fe_id} = selectedComponent
-        // console.log(newProps)
+        const { fe_id } = selectedComponent
         dispatch(changeComponentProps({fe_id, newProps}))
     }
     return (
-        <PropComponent {...props} onChange={changeProps}/>
+        <PropComponent {...props} onChange={changeProps} disabled={isLocked}/>
     )
 }
 
