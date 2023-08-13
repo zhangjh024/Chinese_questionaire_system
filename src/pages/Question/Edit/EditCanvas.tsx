@@ -8,6 +8,7 @@ import {getComponentConfByType} from '../../../components/QuestionComponents'
 import {changeSelectedId, ComponentInfoType} from "../../../store/componentsReducer";
 import {useDispatch} from "react-redux";
 import classNames from 'classnames';
+import useBindKeyPress from "../../../hooks/useBindKeyPress";
 
 type PropsType = {
     loading:boolean
@@ -31,7 +32,8 @@ const EditCanvas:FC<PropsType> = ({loading}) =>{
         e.stopPropagation()
         dispatch(changeSelectedId(id))
     }
-
+    // 绑定快捷键
+    useBindKeyPress();
     if(loading){
         return <div style={{textAlign:'center',marginTop:'24px'}}>
             <Spin/>

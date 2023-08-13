@@ -2,12 +2,13 @@ import {Button, Space, Tooltip} from "antd";
 import {DeleteOutlined } from '@ant-design/icons'
 import {useDispatch} from "react-redux";
 // 删除选中的组件,在store中删除,通过selectedId 删除组件
-import {removeSelectedComponent, changeComponentHidden, toggleComponentLock} from "../../../store/componentsReducer";
-import {EyeInvisibleOutlined, LockOutlined} from '@ant-design/icons'
+import {removeSelectedComponent, changeComponentHidden, toggleComponentLock,copyComponent,pasteComponent} from "../../../store/componentsReducer";
+import {EyeInvisibleOutlined, LockOutlined,CopyOutlined,BlockOutlined} from '@ant-design/icons'
 import useGetComponentInfo from "../../../hooks/useGetComponentInfo";
+
 const EditToolBar = () => {
     const dispatch = useDispatch()
-    const {selectedId, selectedComponent} = useGetComponentInfo()
+    const {selectedId, selectedComponent, copiedComponent} = useGetComponentInfo()
     const {isLocked} = selectedComponent || {}
     const handleDelete = () =>{
         dispatch(removeSelectedComponent())
@@ -18,6 +19,14 @@ const EditToolBar = () => {
     const handleLock = () => {
         dispatch(toggleComponentLock({fe_id:selectedId}))
     }
+    const copy = () =>{
+        dispatch(copyComponent())
+    }
+    const paste = () => {
+        // 先判断disbaled
+        dispatch(pasteComponent())
+    }
+
     return (
         <>
             <Space>
@@ -32,8 +41,13 @@ const EditToolBar = () => {
                             type={isLocked?"primary":"default"}
                             icon={<LockOutlined/>}
                             onClick={handleLock}>
-
                     </Button>
+                </Tooltip>
+                <Tooltip title="复制">
+                    <Button shape='circle' icon={<CopyOutlined/>} onClick={copy}></Button>
+                </Tooltip>
+                <Tooltip title="粘贴">
+                    <Button shape='circle' icon={<BlockOutlined/>} onClick={paste} disabled={copiedComponent==null}></Button>
                 </Tooltip>
             </Space>
 
