@@ -1,9 +1,13 @@
 import QuestionInputConf,{QuestionInputPropsType} from "./QuestionInput";
 import QuestionTitleConf,{QuestionTitlePropsType} from "./QuestionTitle";
 import QuestionParagraphConf,{QuestionParagraphPropsType} from './QuestionParagraph'
+import QuestionInfoConf,{QustionInfoPropsType} from './QuestionInfo'
 import {FC} from "react";
 
-export type ComponentPropsType = QuestionTitlePropsType & QuestionInputPropsType & QuestionParagraphPropsType
+export type ComponentPropsType = QuestionTitlePropsType &
+    QuestionInputPropsType &
+    QuestionParagraphPropsType &
+    QustionInfoPropsType
 
 export type ComponentConfType = {
     title:string,
@@ -17,13 +21,14 @@ export type ComponentConfType = {
 const componentConfList:ComponentConfType[] = [
     QuestionInputConf,
     QuestionTitleConf,
-    QuestionParagraphConf
+    QuestionParagraphConf,
+    QuestionInfoConf
 ]
 export const componentConfGroup = [
     {
         groupId:"text",
         groupName:"文本显示",
-        components:[QuestionTitleConf,QuestionParagraphConf]
+        components:[QuestionInfoConf,QuestionTitleConf,QuestionParagraphConf]
     },
     {
         groupId:"input",
