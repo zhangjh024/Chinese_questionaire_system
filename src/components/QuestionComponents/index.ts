@@ -39,7 +39,7 @@ export const componentConfGroup = [
         components:[QuestionInputConf]
     },
     {
-        groupId:"chose",
+        groupId:"choose",
         groupName:"用户选择",
         components:[QuestionRadioConf]
     },
