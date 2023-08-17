@@ -2,12 +2,14 @@ import QuestionInputConf,{QuestionInputPropsType} from "./QuestionInput";
 import QuestionTitleConf,{QuestionTitlePropsType} from "./QuestionTitle";
 import QuestionParagraphConf,{QuestionParagraphPropsType} from './QuestionParagraph'
 import QuestionInfoConf,{QustionInfoPropsType} from './QuestionInfo'
+import  QuestionRadioConf,{QuestionRadioPropsType} from "./QuestionRadio";
 import {FC} from "react";
 
 export type ComponentPropsType = QuestionTitlePropsType &
     QuestionInputPropsType &
     QuestionParagraphPropsType &
-    QustionInfoPropsType
+    QustionInfoPropsType &
+    QuestionRadioPropsType
 
 export type ComponentConfType = {
     title:string,
@@ -22,7 +24,8 @@ const componentConfList:ComponentConfType[] = [
     QuestionInputConf,
     QuestionTitleConf,
     QuestionParagraphConf,
-    QuestionInfoConf
+    QuestionInfoConf,
+    QuestionRadioConf
 ]
 export const componentConfGroup = [
     {
@@ -35,7 +38,11 @@ export const componentConfGroup = [
         groupName:"用户输入",
         components:[QuestionInputConf]
     },
-
+    {
+        groupId:"chose",
+        groupName:"用户选择",
+        components:[QuestionRadioConf]
+    },
 ]
 
 export function getComponentConfByType(type:string){

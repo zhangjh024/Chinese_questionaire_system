@@ -99,6 +99,7 @@ export const componentsSlice = createSlice({
             }else
                 return
         }),
+        // 粘贴选中的组件
         pasteComponent:produce((draft:ComponentListType)=>{
             const {copiedComponent} = draft
             if(copiedComponent == null) return;
